@@ -1,0 +1,385 @@
+body {
+	background-color: hsl(120,50%, 50%);
+	padding: 0px;
+	margin: 0px;
+	display: grid;
+	grid-template-columns: auto 1000px auto;
+	grid-template-areas: 
+		". main .";
+}
+
+main {
+	
+	grid-area: main;
+}
+
+.input-element {
+	line-height: 30px;
+	
+
+}
+
+#survey-header{
+	text-align: center;
+}
+
+#survey-form {
+
+}
+#number {
+
+}
+
+#form-layout {
+	background-color: lightyellow;
+	display: grid;
+	grid-template-columns: 2fr 2fr 0.2fr 4fr 2fr;
+	grid-template-areas:
+	". name-label . name-value ."
+	". email-label . email-value ."
+	". number-label . number-value ."
+	". dropdown-label . dropdown-value ."
+	". gender-label . gender-value ."
+	". allergies-label . allergies-value ."
+	". comments-label . comments-value ."
+	". . . submit .";
+
+	grid-row: 20px;
+	grid-row-gap: 5px;
+
+}
+
+.label-value {
+	background-color: lightyellow;
+}
+
+#name-label { 
+	grid-area: name-label; 
+	text-align: right;
+}
+
+#name { 
+	grid-area: name-value; 
+}
+
+#email-label { 
+	grid-area: email-label; 
+	text-align: right;
+}
+
+#email { 
+	grid-area: email-value; 
+}
+
+#number-label { 
+	grid-area: number-label; 
+	text-align: right;
+}
+
+#number { 
+	grid-area: number-value; 
+}
+
+#dropdown-label { 
+	grid-area: dropdown-label; 
+	text-align: right;
+}
+
+#dropdown { 
+	grid-area: dropdown-value; 
+}
+
+#gender-label { 
+	grid-area: gender-label; 
+	text-align: right;
+}
+
+#gender-value { 
+	grid-area: gender-value; 
+}
+
+#allergies-label { 
+	grid-area: allergies-label; 
+	text-align: right;
+}
+
+#allergies { 
+	grid-area: allergies-value; 
+}
+
+#comments-label { 
+	grid-area: comments-label; 
+	text-align: right;
+}
+
+#comments { 
+	grid-area: comments-value; 
+}
+
+#submit { 
+	grid-area: submit; 
+	width: 100px;
+}
+
+
+
+
+@media (max-width: 1000px) {
+	body {
+	background-color: hsl(120,50%, 50%);
+	padding: 0px;
+	margin: 0px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-areas: 
+		". main .";
+	}
+
+	main {
+		
+		grid-area: main;
+	}
+
+	.input-element {
+		line-height: 30px;
+		
+
+	}
+
+	#survey-header{
+		text-align: center;
+	}
+
+	#survey-form {
+
+	}
+	#number {
+
+	}
+
+	#form-layout {
+		background-color: lightyellow;
+		display: grid;
+		grid-template-columns: 2fr 2fr 0.2fr 4fr 2fr;
+		grid-template-areas:
+		". name-label . name-value ."
+		". email-label . email-value ."
+		". number-label . number-value ."
+		". dropdown-label . dropdown-value ."
+		". gender-label . gender-value ."
+		". allergies-label . allergies-value ."
+		". comments-label . comments-value ."
+		". . . submit .";
+
+		grid-row: 20px;
+		grid-row-gap: 5px;
+
+	}
+
+	.label-value {
+		background-color: lightyellow;
+	}
+
+	#name-label { 
+		grid-area: name-label; 
+		text-align: right;
+	}
+
+	#name { 
+		grid-area: name-value; 
+	}
+
+	#email-label { 
+		grid-area: email-label; 
+		text-align: right;
+	}
+
+	#email { 
+		grid-area: email-value; 
+	}
+
+	#number-label { 
+		grid-area: number-label; 
+		text-align: right;
+	}
+
+	#number { 
+		grid-area: number-value; 
+	}
+
+	#dropdown-label { 
+		grid-area: dropdown-label; 
+		text-align: right;
+	}
+
+	#dropdown { 
+		grid-area: dropdown-value; 
+	}
+
+	#gender-label { 
+		grid-area: gender-label; 
+		text-align: right;
+	}
+
+	#gender-value { 
+		grid-area: gender-value; 
+	}
+
+	#allergies-label { 
+		grid-area: allergies-label; 
+		text-align: right;
+	}
+
+	#allergies { 
+		grid-area: allergies-value; 
+	}
+
+	#comments-label { 
+		grid-area: comments-label; 
+		text-align: right;
+	}
+
+	#comments { 
+		grid-area: comments-value; 
+	}
+
+	#submit { 
+		grid-area: submit; 
+		width: 100px;
+	}
+}
+
+
+
+@media (max-width: 700px) {
+	body {
+	background-color: hsl(120,50%, 50%);
+	padding: 0px;
+	margin: 0px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-areas: 
+		". main .";
+	}
+
+	main {
+		
+		grid-area: main;
+	}
+
+	.input-element {
+		line-height: 30px;
+		
+
+	}
+
+	#survey-header{
+		text-align: center;
+	}
+
+	#survey-form {
+
+	}
+	#number {
+
+	}
+
+	#form-layout {
+		background-color: lightyellow;
+		display: grid;
+		grid-template-columns: 1fr 4fr 1fr;
+		grid-template-areas:
+		". name-label . "
+		". name-value ."
+		". email-label . "
+		". email-value ."
+		". number-label . "
+		". number-value ."
+		". dropdown-label . "
+		". dropdown-value ."
+		". gender-label . "
+		". gender-value ."
+		". allergies-label . "
+		". allergies-value ."
+		". comments-label . "
+		". comments-value ."
+		". submit .";
+
+		grid-row: 20px;
+		grid-row-gap: 5px;
+
+	}
+
+	.label-value {
+		background-color: lightyellow;
+	}
+
+	#name-label { 
+		grid-area: name-label; 
+		text-align: left;
+	}
+
+	#name { 
+		grid-area: name-value; 
+	}
+
+	#email-label { 
+		grid-area: email-label; 
+		text-align: left;
+	}
+
+	#email { 
+		grid-area: email-value; 
+	}
+
+	#number-label { 
+		grid-area: number-label; 
+		text-align: left;
+	}
+
+	#number { 
+		grid-area: number-value; 
+	}
+
+	#dropdown-label { 
+		grid-area: dropdown-label; 
+		text-align: left;
+	}
+
+	#dropdown { 
+		grid-area: dropdown-value; 
+	}
+
+	#gender-label { 
+		grid-area: gender-label; 
+		text-align: left;
+	}
+
+	#gender-value { 
+		grid-area: gender-value; 
+	}
+
+	#allergies-label { 
+		grid-area: allergies-label; 
+		text-align: left;
+	}
+
+	#allergies { 
+		grid-area: allergies-value; 
+	}
+
+	#comments-label { 
+		grid-area: comments-label; 
+		text-align: left;
+	}
+
+	#comments { 
+		grid-area: comments-value; 
+	}
+
+	#submit { 
+		grid-area: submit; 
+		width: 100px;
+
+	}
+}

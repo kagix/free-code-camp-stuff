@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="survey.css">
+	<title>Survey form</title>
+</head>
+<body>
+	<main>
+		<div id="survey-header">
+			<h1 id="title">Survey Form</h1>
+			<p id="description">Your eating habits</p>
+		</div>
+		<div>
+			<form id="survey-form">
+				<div id="form-layout">
+				
+						<label id="name-label" class="input-element" for="name">Name:</label>
+						<input class="input-element" id="name" type="text" placeholder="Enter your name" required/>
+
+						<label id="email-label" class="input-element" for="email">Email:</label>
+						<input id="email" class="input-element"type="email" placeholder="Enter your email" required/>
+
+						<label id="number-label" class="input-element" for="number">Age:</label>
+						<input class="input-element" id="number" type="number" placeholder="Enter your age" min="1" max="130" required/>	
+
+						<label id="dropdown-label" class="input-element" for="dropdown"> Favorite food:</label>
+						<select id="dropdown" name="food">
+							<option value="empty">---------- choose ----------</option>
+							<option value="chinese">Chinese</option>
+							<option value="french">French</option>
+							<option value="mexican">Mexican</option>
+							<option value="klingon">Klingonian</option>
+							<option value="other">Other</option>
+						</select>
+
+						<label id="gender-label" class="input-element">Gender:</label>
+						<div id="gender-value">
+							<label for="male" class="input-element">
+								<input id="male-radio" class="input-element" type="radio" name="gender" value="male"/>Male
+							</label>
+							<label for="female-radio" class="input-element">
+								<input id="female" class="input-element" type="radio" name="gender" value="female"/>Female
+							</label>
+						</div>
+
+						<label id="allergies-label" class="input-element">Allergies:</label>
+						<div id="allergies">
+							<label for id="vegetarian-label">
+								<input id="vegetarian" type="checkbox" name="vegetarian" value="vegetarian">Vegetarian
+							</label>
+							<br/>
+
+							<label for id="lactose-label">
+								<input id="lactose" type="checkbox" name="lactose" value="lactose">Lactose intolerant
+							</label>
+						</div>
+
+						<label id="comments-label" for="comments">Remarks:</label>
+						<textarea  id="comments" rows="6" cols="40" placeholder="Enter your comments"></textarea>
+
+						<button id="submit">Submit</button> 
+				</div>
+
+			</form>
+		</div>
+	</main>
+	<footer></footer>
+	<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
