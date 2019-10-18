@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+body {
+
+	background-color: hsl(0, 0%, 100%);
+	color: hsl(0, 100%, 0%);
+	padding:0px;
+	margin:0px;
+
+}
+
+
+h2 {
+	text-align: center;
+}
+
+#main {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 8fr 1fr;
+	grid-template-areas:
+      ". title ."
+      ". img-div ."
+      ". tribute-info ."
+      ". link .";
+
+
+}
+
+#title {
+	width: 100%;
+	grid-area: title;
+	display:grid;
+	grid-template-columns: 100% ;
+	text-align: center;
+
+}
+
+#title-caption {
+	justify-self: center;
+	margin: 0px;
+	padding: 0px;
+	font-size: 4vw;
+}
+
+#subtitle-caption {
+	justify-self: center;
+	margin: 0px;
+	padding: 0px;
+	font-size: 3vw;
+
+}
+
+#img-div {
+	width: 100%;
+	justify-self: center;
+	grid-area: img-div;
+	
+
+	display:grid;
+	grid-template-columns: 10px auto 10px ;
+	grid-template-areas:
+      ". image ."
+      ". img-caption .";
+}
+
+#image {
+	justify-self: center;
+	grid-area: image;
+	width: 30%;
+	max-width: 100%;
+	margin: 0px;
+	padding: 0px;
+	border-radius: 20vw;
+	box-shadow: 
+
+
+}
+#img-caption {
+	justify-self: center;
+	grid-area: img-caption;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	font-size: 3vw;
+
+
+}
+
+
+#tribute-info {
+	width: 100%;
+	grid-area: tribute-info;
+	display:grid;
+	grid-template-columns: 30px auto 30px ;
+	grid-template-areas:
+      ". life-events .";
+	font-size: 3vw;
+
+
+  }
+
+#link {
+	width: 100%;
+	grid-area: link;
+	text-align: center;
+	font-size: 3vw;
+
+}
+
+#life-events {
+		grid-area: life-events;
+
+}
+
+
+@media (min-width: 500px) { 
+	body {
+
+		padding:0px;
+		margin:0px;
+	}
+
+
+	h2 {
+		text-align: center;
+	}
+
+	#main {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-areas:
+	      ". title ."
+	      ". img-div ."
+	      ". tribute-info ."
+	      ". link .";
+
+
+	}
+
+	#title {
+		width: 100%;
+		grid-area: title;
+		display:grid;
+		grid-template-columns: 100% ;
+		text-align: center;
+
+	}
+
+	#title-caption {
+		justify-self: center;
+		margin: 0px;
+		padding: 0px;
+		font-size: 26px;
+	}
+
+	#subtitle-caption {
+		justify-self: center;
+		margin: 0px;
+		padding: 0px;
+		font-size: 16px;
+
+	}
+
+	#img-div {
+		width: 100%;
+		justify-self: center;
+		grid-area: img-div;
+		
+
+		display:grid;
+		grid-template-columns: 10px auto 10px ;
+		grid-template-areas:
+	      ". image ."
+	      ". img-caption .";
+	}
+
+	#image {
+		justify-self: center;
+		grid-area: image;
+		width: 30%;
+		max-width: 100%;
+		margin: 0px;
+		padding: 0px;
+
+	}
+	#img-caption {
+		justify-self: center;
+		grid-area: img-caption;
+		margin: 0px;
+		padding: 0px;
+		text-align: center;
+		font-size: 16px;
+	}
+
+
+	#tribute-info {
+		width: 100%;
+		grid-area: tribute-info;
+		display:grid;
+		grid-template-columns: 1fr 9fr 1fr ;
+		grid-template-areas:
+	      ". life-events .";
+		font-size: 16px;
+
+
+	  }
+
+	#link {
+		width: 100%;
+		grid-area: link;
+		text-align: center;
+		font-size: 16px;
+
+	}
+
+	#life-events {
+			grid-area: life-events;
+
+	}
+
+ }
+
+</style>
+
+</head>
+<body>
+
+<main id="main">
+	<div id="title">
+		<h1 id="title-caption">Albert Schweitzer</h1>
+		<h2 id="subtitle-caption">The man who reinvented the pipe organ</h2>
+	</div>
+	<figure id="img-div">
+		<img id="image" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Bundesarchiv_Bild_183-D0116-0041-019%2C_Albert_Schweitzer.jpg" alt="Albert Schweitzer circa 1935"/>
+		<figcaption id="img-caption">Photo of Dr. Schweitzer, courtesy of Wikipedia</figcaption>
+
+	</figure>
+	<div id="tribute-info">
+		<ul id="life-events">
+			<li><strong>1875</strong> - Born in Kayserberg.</li>
+			<li><strong>1885</strong> - Started to study organ in Mulhouse for the next 8 years.</li>
+			<li><strong>1899</strong> - Identified figures and mothifs in  Bach's <em>Chorale Preludes.</em></li>
+			<li><strong>1905</strong> - Published <em> J. S. Bach: Le Musicien-Poète.</em></li>
+			<li><strong>1906</strong> - Published <em>The Art of Organ Building</em></li>
+			<li><strong>1913</strong> - Departure for Lambaréné.</li>
+			<li><strong>1952</strong> - Awarded the Nobel Peace Prize.</li>
+			<li><strong>1965</strong> - Dies at 90.</li>
+		</ul>
+	</div>
+	<div id="link">
+		<p>Click to read more about 
+			<a href="https://en.wikipedia.org/wiki/Albert_Schweitzer" id="tribute-link" target="_blank">Dr. Schweitzer</a> 
+		</p>
+	</div>
+
+</main>
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>

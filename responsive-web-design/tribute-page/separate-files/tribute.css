@@ -1,0 +1,239 @@
+body {
+
+	background-color: hsla(60, 50%, 75%);
+
+}
+
+
+h2 {
+	text-align: center;
+}
+
+#main {
+	width: 100%;
+	background-color: hsla(90, 50%, 50%);
+	display: grid;
+	grid-template-columns: 1fr 8fr 1fr;
+	grid-template-areas:
+      ". title ."
+      ". img-div ."
+      ". tribute-info ."
+      ". link .";
+
+
+}
+
+#title {
+	width: 100%;
+	background-color: hsla(120, 50%, 50%);
+	grid-area: title;
+	display:grid;
+	grid-template-columns: 100% ;
+	text-align: center;
+
+}
+
+#title-caption {
+	background-color: yellow;
+	justify-self: center;
+	margin: 0px;
+	padding: 0px;
+	font-size: 3vw;
+}
+
+#subtitle-caption {
+	background-color: cyan;
+	justify-self: center;
+	margin: 0px;
+	padding: 0px;
+	font-size: 2vw;
+
+}
+
+#img-div {
+	width: 100%;
+	background-color: hsla(150, 50%, 50%);
+	justify-self: center;
+	grid-area: img-div;
+	
+
+	display:grid;
+	grid-template-columns: 10px auto 10px ;
+	grid-template-areas:
+      ". image ."
+      ". img-caption .";
+}
+
+#image {
+	justify-self: center;
+	grid-area: image;
+	width: 30%;
+	max-width: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: hsla(200, 50%, 50%);
+	border-radius: 20vw;
+	box-shadow: 
+
+
+}
+#img-caption {
+	justify-self: center;
+	grid-area: img-caption;
+	margin: 0px;
+	padding: 0px;
+	background-color: hsla(200, 50%, 50%);
+	text-align: center;
+	font-size: 2vw;
+
+
+}
+
+
+#tribute-info {
+	width: 100%;
+	background-color: hsla(180, 50%, 50%);
+	grid-area: tribute-info;
+	display:grid;
+	grid-template-columns: 1fr 3fr 1fr ;
+	grid-template-areas:
+      ". life-events .";
+	font-size: 2vw;
+
+
+  }
+
+#link {
+	width: 100%;
+	background-color: hsla(210, 50%, 50%);
+	grid-area: link;
+	text-align: center;
+	font-size: 2vw;
+
+}
+
+#life-events {
+		grid-area: life-events;
+
+}
+
+
+@media (min-width: 800px) { 
+	body {
+
+		background-color: hsla(60, 50%, 75%);
+
+	}
+
+
+	h2 {
+		text-align: center;
+	}
+
+	#main {
+		width: 100%;
+		background-color: hsla(90, 50%, 50%);
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-areas:
+	      ". title ."
+	      ". img-div ."
+	      ". tribute-info ."
+	      ". link .";
+
+
+	}
+
+	#title {
+		width: 100%;
+		background-color: hsla(120, 50%, 50%);
+		grid-area: title;
+		display:grid;
+		grid-template-columns: 100% ;
+		text-align: center;
+
+	}
+
+	#title-caption {
+		background-color: yellow;
+		justify-self: center;
+		margin: 0px;
+		padding: 0px;
+		font-size: 26px;
+	}
+
+	#subtitle-caption {
+		background-color: cyan;
+		justify-self: center;
+		margin: 0px;
+		padding: 0px;
+		font-size: 16px;
+
+	}
+
+	#img-div {
+		width: 100%;
+		background-color: hsla(150, 50%, 50%);
+		justify-self: center;
+		grid-area: img-div;
+		
+
+		display:grid;
+		grid-template-columns: 10px auto 10px ;
+		grid-template-areas:
+	      ". image ."
+	      ". img-caption .";
+	}
+
+	#image {
+		justify-self: center;
+		grid-area: image;
+		width: 30%;
+		max-width: 100%;
+		margin: 0px;
+		padding: 0px;
+		background-color: hsla(200, 50%, 50%);
+
+	}
+	#img-caption {
+		justify-self: center;
+		grid-area: img-caption;
+		margin: 0px;
+		padding: 0px;
+		background-color: hsla(200, 50%, 50%);
+		text-align: center;
+		font-size: 16px;
+
+
+	}
+
+
+	#tribute-info {
+		width: 100%;
+		background-color: hsla(180, 50%, 50%);
+		grid-area: tribute-info;
+		display:grid;
+		grid-template-columns: 1fr 9fr 1fr ;
+		grid-template-areas:
+	      ". life-events .";
+		font-size: 16px;
+
+
+	  }
+
+	#link {
+		width: 100%;
+		background-color: hsla(210, 50%, 50%);
+		grid-area: link;
+		text-align: center;
+		font-size: 16px;
+
+	}
+
+	#life-events {
+			grid-area: life-events;
+
+	}
+
+ }
+
