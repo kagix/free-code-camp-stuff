@@ -1,0 +1,16 @@
+
+
+
+
+.first-row {
+    min-height: 23vh;
+  /*  max-height: 33vh;*/
+}
+
+
+
+#centralone {
+  min-height: 50vh;
+  border: 5px solid black;
+  border-radius: 10px;
+}

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+	<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"></style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">       
+	<link rel="stylesheet" href="./random-quote.css" ></style>
+
+	<title>Get the quote of the day</title>
+</head>
+<body>
+
+
+
+
+<!-- thanks to https://digitalsynopsis.com/design/beautiful-color-palettes-combinations-schemes/ for the nice color palettes -->
+<!-- to https://www.goodreads.com/quotes/tag/free for the quotes -->
+
+
+<div class="container">
+  <div class="row align-items-start first-row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-3">
+    </div>
+    <div class="col-6"  id="root">
+      
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js" crossorigin></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.4/redux.min.js" crossorigin></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js" crossorigin></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.1.1/react-redux.js" crossorigin></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js" ></script>
+	<script type="text/babel" >
+		
+
+		// Inline script avoids the CORS problem !
+
+
+
+//
+//import React from 'react';
+//import ReactDOM from 'react-dom';
+//import Redux from 'redux';
+//import ReactRedux from 'react-redux';
+
+
+const COLOR_WHEEL = {
+  "Beach Towels" : ["#fe4a49","#2ab7ca","#fed766","#e6e6ea","#f4f4f8"],
+  "Moonlight Bytes 6" : ["#4a4e4d","#0e9aa7","#3da4ab","#f6cd61","#fe8a71"],
+  "Number 3" : ["#2a4d69","#4b86b4","#adcbe3","#e7eff6","#63ace5"],
+  "Blueberry Basket" : ["#ffffff","#d0e1f9","#4d648d","#283655","#1e1f26"],
+  "Cappuccino" : ["#4b3832","#854442","#fff4e6","#3c2f2f","#be9b7b"],
+  "Facebook" : ["#3b5998","#8b9dc3","#dfe3ee","#f7f7f7","#ffffff"],
+  "Google Colors" : ["#008744","#0057e7","#d62d20","#ffa700","#ffffff"],
+  "The Water Bearer" : ["#ebf4f6","#bdeaee","#76b4bd","#58668b","#5e5656"],
+  "Skin Tones" : ["#8d5524","#c68642","#e0ac69","#f1c27d","#ffdbac"]
+};
+
+const QUOTE_FOUNTAIN = [
+  {
+    quote: "The truly free man is the one who can turn down an invitation to dinner without giving an excuse.",
+    author:"Jules Renard",
+    source: "The Journal of Jules Renard"
+  },
+  {
+    quote: "Our task must be to free ourselves... by widening our circle of compassion to embrace all living creatures and the whole of nature and it's beauty.",
+    author: "Albert Einstein",
+    source: ""
+  },
+  {
+    quote: "Maybe some women aren't meant to be tamed. Maybe they just need to run free until they find someone just as wild to run with them.",
+    author: "Candace Bushnell",
+    source: ""
+  },
+  {
+    quote: "Man cannot be freed by the same injustice that enslaved it.",
+    author: "Pierce Brown",
+    source: "Red Rising"
+  },
+  {
+    quote: "Life calls the tune, we dance.",
+    author: "John Galsworthy",
+    source: ""
+  },
+  {
+    quote: "Even when you’d lost everything you thought there was to lose, somebody came along and gave you something for free.",
+    author: "Jenny Valentine",
+    source: "Broken Soup "
+  },
+  {
+    quote: "The library is like a candy store where everything is free.",
+    author: "Jamie Ford",
+    source: "Songs of Willow Frost"
+  },
+  {
+    quote: "The more material we lose, the less we have. The less we have, the more we win.",
+    author: " Anthony Liccione ",
+    source: ""
+  }
+
+];
+
+
+
+
+
+
+
+const quoteByIndex = (index) =>  QUOTE_FOUNTAIN[index % QUOTE_FOUNTAIN.length].quote;
+const authorByIndex = (index) =>  QUOTE_FOUNTAIN[index % QUOTE_FOUNTAIN.length].author;
+const colorGroupByName = (name) => COLOR_WHEEL[name];
+const firstColorByName = (name) => colorGroupByName(name)[0];
+const secondColorByName = (name) => colorGroupByName(name)[1];
+const thirdColorByName = (name) => colorGroupByName(name)[2];
+const fourthColorByName = (name) => colorGroupByName(name)[3];
+const fifthColorByName = (name) => colorGroupByName(name)[4];
+const bodyColorByName = (name) => fourthColorByName(name);
+const backgroundColorByName = (name) => firstColorByName(name);
+const fontColorByName = (name) => fifthColorByName(name);
+
+function colorSize() {
+  let colorCount = 0;
+  for ( let key in COLOR_WHEEL){
+    colorCount += 1;
+  }
+  return colorCount;
+}
+
+
+
+
+function getRandomColorName(){
+     let colorNumber = Math.floor(Math.random() * colorSize());
+     let colorName = '';
+     for ( let key in COLOR_WHEEL){
+       if (colorNumber >= 0)
+       {
+         colorName = key;
+         colorNumber -= 1;
+       }
+     }
+    return colorName;
+    
+}
+
+const makeProps = () => {
+  let props = [];
+  props.push({index: generateRandomQuoteNumber()});
+  props.push({color:getRandomColorName()});
+  return props;
+}
+
+const combineProps = (props, property )  => {
+  
+  
+  let newProps = [...props];  
+  for (let i = 0; i < newProps.length; i++){
+    
+    for (let key in property){
+      if (newProps[i].hasOwnProperty(key)){
+        newProps[i][key] = property[key];
+      }
+      
+      
+    }
+  }
+  
+  
+  return newProps;
+}
+
+const PROPS_INDEX = 0;
+const PROPS_COLOR = 1;
+
+const INDEX = 'INDEX';
+const COLOR = 'COLOR';
+const RANDOM = 'RANDOM';
+
+function updateIndex(value) {
+  
+  return {
+    type: INDEX,
+    payload: {index:value}
+  };
+}
+
+function makeRandom() {
+  return {
+    type: RANDOM
+  };
+}
+
+function updateColor(value) {
+  return {
+    type: COLOR,
+    payload: {color: value}
+  };
+}
+
+const mapStateToProps = ( attributes ) => {
+  
+  return { attributes } ;
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    index:  (newIndex) => dispatch(updateIndex(newIndex)),
+    color: (newColor) => dispatch(updateColor(newColor))
+  };
+}
+
+
+const  generateRandomQuoteNumber = () => {
+  let index = Math.floor(Math.random() * QUOTE_FOUNTAIN.length);
+  return index;
+}
+
+
+
+// the quote element 
+// now it is hardcoded 
+
+const TEXT_ID = "text";
+class Text extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.style = {color: fontColorByName(this.props.colorName),textAlign: "center", padding:"20px"};
+  }
+  
+  render() {
+    this.style = {color: fontColorByName(this.props.colorName),textAlign: "center", padding:"20px"};
+    let ndx = quoteByIndex(this.props.number);
+    return (
+      <div id={TEXT_ID} style={this.style}>{ndx}</div>
+    );
+  }
+}
+
+// the author element 
+// now it is hardcoded 
+const AUTHOR_ID = "author";
+class Author extends React.Component {
+  
+  constructor(props){
+
+    super(props);
+    this.style = {color:  fontColorByName(this.props.colorName), textAlign: "right", padding:"20px"};
+  }
+  
+  render() {
+    this.style = {color:  fontColorByName(this.props.colorName), textAlign: "right", padding:"20px"};
+    let ndx = authorByIndex(this.props.number);
+    return (
+      <div id={AUTHOR_ID} style={this.style} >{ndx}</div>
+    );
+  }
+} 
+
+
+// the button for getting a new quote 
+// for now it is a div 
+const NEW_QUOTE_BUTTON_ID = "new-quote";
+class NewQuoteButton extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.style= {
+      backgroundColor2:"darkblue"
+    };
+  }
+  
+  render() { 
+    return (
+      <button id={NEW_QUOTE_BUTTON_ID} onClick={this.props.handleNewQuote} className="btn btn-block btn-primary" style={this.style}>New Quote</button>
+    );
+  }
+}
+
+// the button for tweeting the quote 
+// for now it is a div 
+const TWITTER_QUOTE_BUTTON_ID = "tweet-quote";
+class TwitterQuoteButton extends React.Component {
+  
+  constructor(props){
+
+    super(props);
+    this.className="fa fa-twitter-square ";
+    this.style = {
+      fontSize: "45px"
+    }
+  }
+  
+  render() {
+    return (
+      <a id={TWITTER_QUOTE_BUTTON_ID} href={this.props.twitterUrl} target="_blank" ><i className={this.className} style={this.style}></i></a>
+       
+    );
+  }
+}
+
+
+// This is the container of all of the important elements 
+const QUOTE_BOX_ID = "quote-box";
+class QuoteBox extends React.Component {
+  
+  constructor(props){
+    super(props); 
+    this.state = {};
+    let name = "Zero"; 
+    
+    let bodyStyle = "background:" + bodyColorByName(this.props.attributes[1].color);
+    document.body.style = bodyStyle; 
+    this.style = {backgroundColor: backgroundColorByName(this.props.attributes[1].color)};
+    this.handleNewQuote = this.handleNewQuote.bind(this);
+
+  }
+  
+  
+  
+  
+  getColor() {
+    return this.props.attributes[PROPS_COLOR].color;
+  }
+  
+  getIndex() {
+    return this.props.attributes[PROPS_INDEX].index;
+  }
+  
+  
+  handleNewQuote() {
+    let newIndex = generateRandomQuoteNumber();
+    let newColor = getRandomColorName();
+       
+    this.props.index(newIndex);
+    this.props.color(newColor);
+    
+    this.setState({});
+    let bodyStyle = "background:" + bodyColorByName(this.getColor());
+    document.body.style = bodyStyle; 
+    this.style = {backgroundColor: backgroundColorByName(this.getColor())};
+  }
+  
+  getTwitterUrl() {
+     
+
+    let url = "https://twitter.com/intent/tweet?hashtags=quote&text=";
+    url += "\"";
+    url += quoteByIndex(this.getIndex());
+    url += "\"";
+    url += " ";
+    url += authorByIndex(this.getIndex());
+    
+    return url;
+  }
+  
+  render() {
+    let url = this.getTwitterUrl();
+    
+    return (
+      <div id={QUOTE_BOX_ID}  style={this.style}>
+        
+      <Text number={this.getIndex()} colorName={this.getColor()}/> 
+      <br/>
+      <Author number={this.getIndex()} colorName={this.getColor()}/>
+      <br/>
+      <div className="container">
+        <div className="row align-items-start">
+          <div className="col-3">
+            <NewQuoteButton handleNewQuote={this.handleNewQuote}/>
+          </div>
+          <div className="col-6">
+          </div>
+          
+          <div className="col-3">
+            <TwitterQuoteButton twitterUrl={url}/></div>
+          </div>
+        </div>
+      </div>
+      
+    );
+  }
+}
+
+const ROOT_ID = "root";
+const rootElement = () => {
+  return (
+      document.getElementById(ROOT_ID)
+    );
+}
+
+
+
+const initialProps = makeProps();
+
+const propsReducer = (state = initialProps, action) => {
+
+  switch(action.type){
+    case INDEX:
+      return combineProps(state, action.payload);
+    case COLOR:
+      return combineProps(state, action.payload);
+    case RANDOM:
+      return initialProps;
+    default:
+      return state;
+  }
+};
+
+const store = Redux.createStore(propsReducer);
+const Provider = ReactRedux.Provider;
+const connect = ReactRedux.connect;
+const QuoteBoxConnected = connect(mapStateToProps, mapDispatchToProps)(QuoteBox);
+
+
+let element = <QuoteBox/>;
+
+element = <Provider store={store}><QuoteBoxConnected /></Provider>;
+
+
+ReactDOM.render(element, rootElement());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+</html>
